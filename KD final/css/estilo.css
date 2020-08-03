@@ -1,0 +1,249 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    background: url(../img/dormir.png) center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+img {
+    width: 50%;
+    height: auto;
+    box-sizing: content-box;
+    margin-top: center;
+    animation: moverIzquierda 1s ease-in;
+    
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+   margin-bottom: 1rem;
+   color: #fff;
+   animation: moverDerecha 1s ease-in;
+}
+
+@keyframes moverIzquierda{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moverDerecha{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+
+.btn {
+    display: inline-block;
+    width: 200px;
+    height: 75px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    -webkit-transition: .5s;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 40px;
+    animation: moverArriba 1s ease-in;
+}
+
+.btn:hover a {
+    background: transparent;
+    color: #fff ;
+    font-size: 28px;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+
+}
+
+@keyframes moverArriba{
+    0%{
+        opacity: 0;
+        transform: translatey(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.purple a {
+    border:none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.purple:hover{
+    background: #740f7c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00a7be, #740f7c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00a7be, #740f7c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+
+/* Navigation */
+header nav {
+    background: #750f7cc4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00a8beef, #750f7cd7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00a8beef, #750f7cd7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition:  all 0.3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+header nav ul li {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+header nav ul li a {
+    display: block;
+    font-size: 3rem;
+    text-decoration: none;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bold 700;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0,0,0, 0.5); 
+}
+
+header nav ul li a:hover {
+    color: #740f7c;
+}
+
+.toggle-btn {
+    display: block;
+    position: fixed;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.toggle-btn .menu {
+    width: 30px;
+    height: 2px;
+    margin: 7px auto;
+    background: #fff;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 3px 1px rgba(0,0,0, 0.3)
+}
+
+.toggle-btn .menu:nth-child(2) {
+    width: 20px;
+}
+
+#toggle {
+    display: none;
+}
+
+#toggle:checked ~ nav {
+    opacity: 1;
+    visibility: visible;
+}
+
+#toggle:checked ~ nav  ul {
+    top: 70px;
+}
+
+#toggle:checked ~ nav ul li {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+#toggle:checked ~ nav ul li:nth-child(1) {
+    -webkit-transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+    transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(2) {
+    -webkit-transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+    transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(3) {
+    -webkit-transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+    transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+}
+
+#toggle:checked ~ nav ul li:nth-child(4) {
+    -webkit-transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+    transition:  all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+}
+
+#toggle:checked + label.toggle-btn .menu {
+    background: #740f7c;
+}
+
+#toggle:checked + label.toggle-btn .menu:nth-child(2){
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+#toggle:checked + label.toggle-btn .menu:nth-child(1){
+    -webkit-transform: translateY(10px) rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
+}
+
+#toggle:checked + label.toggle-btn .menu:nth-child(3){
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+}
